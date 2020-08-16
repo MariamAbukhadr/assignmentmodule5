@@ -84,7 +84,7 @@ showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl,
   buildAndShowHomeHTML,
- /* function (responseText) {
+  /*function (responseText) {
     document.querySelector("#main-content").
     innerHTML=responseText;
     },*/ // ***** <---- TODO: STEP 1: Substitute [...] ******
@@ -101,11 +101,12 @@ function buildAndShowHomeHTML (categories) {
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
-     // $ajaxUtils.sendGetRequest(categoryHtml,
+      //$ajaxUtils.sendGetRequest(categoryHtml,
         //function (categoryHtml) {
-          var chosenCategoryShortName=""+chooseRandomCategory(categories);
-          var sn ="'"+chosenCategoryShortName+"'";
-          var homeHtmlToInsertIntoMainPage=insertProperty(homeHtmlToInsertIntoMainPage,"randomCategoryShortName",sn)
+          var chosenCategoryShortName=chooseRandomCategory(categories);
+          //var stringified=JSON.stringify(chosenCategoryShortName);
+          var sn ="'"+ chosenCategoryShortName.short_name +"'";
+          var homeHtmlToInsertIntoMainPage=insertProperty(homeHtmlToInsertIntoMainPage,"randomCategoryShortName",sn);
           //var chosenCategoryShortName=chooseRandomCategory(categories);
         //},false);
     //var homeHtmlToInsertIntoMainPage ="'" +chosenCategoryShortName + "'";
